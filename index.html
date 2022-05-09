@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="username"></div>
+    <div id="fullname"></div>
+    <div id="nationality"></div>
+    <div id="dateofbirth"></div>
+    <div id="profession"></div>
+    <div id="status"></div>
+
+</body>
+<script type="text/javascript">
+    fetch("http://localhost:3002/Profile")
+        .then(person => person.json())
+        .then(personObject => display(personObject));
+
+
+    function display(content) {
+        document.getElementById("username").innerHTML = content.Username;
+        document.getElementById("fullname").innerHTML = content.Fullname;
+        document.getElementById("nationality").innerHTML = content.Nationality;
+        document.getElementById("dateofbirth").innerHTML = content.DateOfBirth;
+        document.getElementById("profession").innerHTML = content.Profession;
+        document.getElementById("status").innerHTML = content.MaritalStatus;
+
+    }
+
+</script>
+</body>
+
+</html>
